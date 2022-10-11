@@ -1,0 +1,28 @@
+name: On external trigger
+
+# Controls when the action will run. Triggers the workflow on repository_dispatch and filters by type of event (i.e. `event_type`)
+on:
+  repository_dispatch:
+    types: [external_push_mbtiles_created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout tilehut-server 
+        uses: actions/checkout@v3
+        
+      # This part here is cloning a second repository
+      # While cloning the repository:
+      #   - it clones the repo into the given `path`
+      #   - it checks out the branch defined at `ref`
+      - name: Clone thermalmap-tippecanoe repo
+        uses: actions/checkout@v2
+        with:
+          repository: llauner/thermalmap-geojson-data
+          path: ./data
+          ref: master
+
+      - name: Run a multi-line script
+        run: |
+          echo Do something here ...
