@@ -40,5 +40,6 @@ jobs:
           gcloud_service_key: ${{ secrets.GCLOUD_SERVICE_KEY }}
           registry: eu.gcr.io
           project_id: thermalmap-365200
-          image_name: thermalmap-tilehut-server:latest
+          image_name: thermalmap-tilehut-server
+          image_tag: latest
           push_only: true
