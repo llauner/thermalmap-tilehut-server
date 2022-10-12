@@ -4,6 +4,13 @@ name: On external trigger
 on:
   repository_dispatch:
     types: [external_push_mbtiles_created]
+    
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: string
+        default: DEV
+        required: false
 
 jobs:
   build:
