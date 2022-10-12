@@ -23,6 +23,6 @@ jobs:
           path: ./data
           ref: master
 
-      - name: Run a multi-line script
+      - name: Build Docker image
         run: |
-          echo Do something here ...
+          docker build . --file Dockerfile --tag eu.gcr.io/thermalmap-365200/thermalmap-tilehut-server:latest
