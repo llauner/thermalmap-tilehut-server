@@ -59,3 +59,4 @@ jobs:
       with:
         image: 'eu.gcr.io/thermalmap-365200/thermalmap-tilehut-server:latest'
         service: 'thermalmap-tilehut-server'
+        region: 'europe-west9'
