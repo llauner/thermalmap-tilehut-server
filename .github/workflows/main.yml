@@ -46,6 +46,7 @@ jobs:
           push_only: true
           
   deploy-to-google-run:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - id: 'auth'
