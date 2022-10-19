@@ -43,11 +43,11 @@ jobs:
     - id: 'auth'
       uses: 'google-github-actions/auth@v0'
       with:
-        credentials_json: '${{ secrets.GCLOUD_SERVICE_KEY_igcheatmap }}'
+        credentials_json: '${{ secrets.GCLOUD_SERVICE_KEY_IGCHEATMAP }}'
 
     - name: 'Deploy to Cloud Run'
       uses: 'google-github-actions/deploy-cloudrun@v0'
       with:
-        image: env.tilehut_server_image_name
+        image: ${{ env.tilehut_server_image_name }}
         service: 'thermalmap-tilehut-server'
         region: 'europe-west9'
