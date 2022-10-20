@@ -31,7 +31,7 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v0'
 
       - name: 'Use gcloud CLI: copy file to ./data'
-        run: 'gsutil cp gs://tracemap-trace-aggregator-mbtiles/2022-tracks.mbtiles ./data/'
+        run: 'gsutil cp gs://tracemap-trace-aggregator-mbtiles/*.mbtiles ./data/'
 
       - name: Build Docker image
         run: |
