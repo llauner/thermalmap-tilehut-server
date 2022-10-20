@@ -20,7 +20,18 @@ jobs:
       - name: Checkout tilehut-server 
         uses: actions/checkout@v3
         
-      # TODO:
+      # Copy .mbtiles file from gcp cloud storage to embed into image
+      - name: Copy mbtiles
+        id: 'auth'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          service_account_key: ${{ secrets.GCLOUD_SERVICE_KEY_IGCHEATMAP }}
+
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v0'
+
+      - name: 'Use gcloud CLI: copy file to ./data'
+        run: 'gsutil cp gs://tracemap-trace-aggregator-mbtiles/2022-tracks.mbtiles ./data/'
 
       - name: Build Docker image
         run: |
