@@ -2,6 +2,9 @@ name: igcheatmap - On external trigger
 
 # Controls when the action will run. Triggers the workflow on repository_dispatch and filters by type of event (i.e. `event_type`)
 on:
+  repository_dispatch:
+    types: [igcheatmap_external_push_mbtiles_created]
+    
   workflow_dispatch:
     inputs:
       environment:
