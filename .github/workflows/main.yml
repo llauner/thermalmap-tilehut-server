@@ -58,5 +58,5 @@ jobs:
       uses: 'google-github-actions/deploy-cloudrun@v0'
       with:
         image: 'eu.gcr.io/thermalmap-365200/thermalmap-tilehut-server:latest'
-        service: 'thermalmap-tilehut-server'
-        region: 'europe-west9'
+        service: 'thermalmap-tilehut-server-run-app-europe-west1'
+        region: 'europe-west1'
