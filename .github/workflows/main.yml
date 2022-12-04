@@ -24,15 +24,16 @@ jobs:
       #   - it clones the repo into the given `path`
       #   - it checks out the branch defined at `ref`
       - name: Clone repo=thermalmap-geojson-data
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: llauner/thermalmap-geojson-data
           token: ${{ secrets.ACCESS_TOKEN }}
-          path: ./data
+          path: ./thermalmap-geojson-data
           ref: master
 
       - name: Build Docker image
         run: |
+          cp ./thermalmap-geojson-data/*.mbtiles ./data/
           docker build . --file Dockerfile --tag eu.gcr.io/thermalmap-365200/thermalmap-tilehut-server:latest
           
       - name: Push to Container registry
